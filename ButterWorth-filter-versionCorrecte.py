@@ -32,7 +32,7 @@ t, h = signal.dimpulse(system)
 # Extraire la réponse de la forme de liste
 h = np.squeeze(h)
 
-# Afficher la réponse impulsionnelle
+# affichage de  la réponse impulsionnelle
 plt.stem(t, h, basefmt=" ")
 plt.title("Réponse impulsionnelle h(n)")
 plt.xlabel("n")
@@ -40,7 +40,7 @@ plt.ylabel("Amplitude")
 plt.grid()
 plt.show()
 
-# 5. Tracer la fonction de transfert H(f)
+# 5. la fonction de transfert H(f)
 frequencies = np.linspace(0, fe / 2, 500)  # Plage de fréquences
 w, h_freq = signal.freqz(b, a, worN=frequencies, fs=fe)  # Fonction de transfert
 
@@ -51,7 +51,7 @@ plt.ylabel("Gain (dB)")
 plt.grid()
 plt.show()
 
-# 6. Effet de l'augmentation de l'ordre du filtre
+# 6. Effet de l'augmentation de l'ordre du filtre : essayons  avec un ordre =8 et vérifions la fonction de transfert pour cet ordre par rapport a l'ordre 4
 ordre_haut = 8  # Augmenter l'ordre
 b_haut, a_haut = signal.butter(ordre_haut, [Wn1, Wn2], btype='bandpass', analog=False)
 w_haut, h_haut = signal.freqz(b_haut, a_haut, worN=frequencies, fs=fe)  # Nouvelle fonction de transfert
